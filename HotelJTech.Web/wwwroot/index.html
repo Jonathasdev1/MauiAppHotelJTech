@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel JTech</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="booking">
+      <div class="intro">
+        <p class="eyebrow">Hotel JTech</p>
+        <h1>Calculo de hospedagem</h1>
+        <p>Consulte suites, periodo e quantidade de hospedes para fechar a diaria com clareza.</p>
+      </div>
+
+      <form id="booking-form" class="panel">
+        <label>
+          Adultos
+          <input id="adults" type="number" min="1" max="10" value="1">
+        </label>
+
+        <label>
+          Criancas
+          <input id="children" type="number" min="0" max="10" value="0">
+        </label>
+
+        <label class="wide">
+          Suite
+          <select id="room">
+            <option value="180">Suite Standard - R$ 180,00</option>
+            <option value="260">Suite Familia - R$ 260,00</option>
+            <option value="340">Suite Premium - R$ 340,00</option>
+          </select>
+        </label>
+
+        <label>
+          Check-in
+          <input id="checkin" type="date" required>
+        </label>
+
+        <label>
+          Check-out
+          <input id="checkout" type="date" required>
+        </label>
+
+        <button class="wide" type="submit">Calcular hospedagem</button>
+      </form>
+    </section>
+
+    <aside class="summary" aria-live="polite">
+      <span>Resultado</span>
+      <h2 id="total">R$ 0,00</h2>
+      <p id="details">Informe os dados da estadia para calcular o valor.</p>
+    </aside>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

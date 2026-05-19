@@ -2,11 +2,126 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotelJTech.Views.ContratacaoHospedagem"
-             Title="ContratacaoHospedagem">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="ContratacaoHospedagem"
+             BackgroundColor="#F7F1E8">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="18">
+
+            <Label Text="Calculo da diaria"
+                   FontFamily="KalamBold"
+                   FontSize="38"
+                   TextColor="#2F6B4F"
+                   HorizontalTextAlignment="Center" />
+
+            <Border Stroke="#E3D7C8"
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="#FFFDF8"
+                    Padding="16">
+
+                <VerticalStackLayout Spacing="18">
+                    <Grid RowDefinitions="Auto,Auto"
+                          ColumnDefinitions="*,Auto,150"
+                          RowSpacing="12"
+                          ColumnSpacing="12">
+
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Adultos"
+                               FontSize="18"
+                               VerticalTextAlignment="Center" />
+
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Text="{Binding Value, Source={x:Reference stpAdultos}, StringFormat='{0:F0}'}"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#2F6B4F"
+                               VerticalTextAlignment="Center" />
+
+                        <Stepper Grid.Row="0"
+                                 Grid.Column="2"
+                                 x:Name="stpAdultos"
+                                 Minimum="1"
+                                 Maximum="10"
+                                 Increment="1"
+                                 Value="1" />
+
+                        <Label Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Criancas"
+                               FontSize="18"
+                               VerticalTextAlignment="Center" />
+
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding Value, Source={x:Reference stpCriancas}, StringFormat='{0:F0}'}"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#2F6B4F"
+                               VerticalTextAlignment="Center" />
+
+                        <Stepper Grid.Row="1"
+                                 Grid.Column="2"
+                                 x:Name="stpCriancas"
+                                 Minimum="0"
+                                 Maximum="10"
+                                 Increment="1" />
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Escolha sua suite"
+                               FontSize="18"
+                               FontAttributes="Bold" />
+
+                        <Picker x:Name="pckQuarto"
+                                Title="Selecione sua acomodacao" />
+                    </VerticalStackLayout>
+
+                    <Border Stroke="#E3D7C8"
+                            StrokeShape="RoundRectangle 8"
+                            BackgroundColor="#FFFFFF"
+                            Padding="14">
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="Periodo da estadia"
+                                   FontSize="18"
+                                   FontAttributes="Bold" />
+
+                            <Grid RowDefinitions="Auto,Auto"
+                                  ColumnDefinitions="90,*"
+                                  RowSpacing="10">
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="Check-in"
+                                       VerticalTextAlignment="Center" />
+
+                                <DatePicker Grid.Row="0"
+                                            Grid.Column="1"
+                                            x:Name="dtpckCheckin"
+                                            Format="dd/MM/yyyy" />
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="Check-out"
+                                       VerticalTextAlignment="Center" />
+
+                                <DatePicker Grid.Row="1"
+                                            Grid.Column="1"
+                                            x:Name="dtpckCheckout"
+                                            Format="dd/MM/yyyy" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Button Text="Calcular hospedagem"
+                            FontAttributes="Bold"
+                            FontSize="17"
+                            BackgroundColor="#2F6B4F"
+                            TextColor="White"
+                            Clicked="OnCalcularHospedagemClicked" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

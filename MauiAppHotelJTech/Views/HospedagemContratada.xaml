@@ -2,11 +2,66 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotelJTech.Views.HospedagemContratada"
-             Title="HospedagemContratada">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="HospedagemContratada"
+             BackgroundColor="#F7F1E8">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="18">
+
+            <Label Text="Hospedagem contratada"
+                   FontFamily="KalamBold"
+                   FontSize="34"
+                   TextColor="#2F6B4F"
+                   HorizontalTextAlignment="Center" />
+
+            <Image Source="hotel_quarto.svg"
+                   HeightRequest="180"
+                   Aspect="AspectFit"
+                   SemanticProperties.Description="Ilustracao da suite contratada" />
+
+            <Border Stroke="#E3D7C8"
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="#FFFDF8"
+                    Padding="16">
+
+                <VerticalStackLayout Spacing="12">
+                    <Label x:Name="lblQuarto"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#244034" />
+
+                    <Label x:Name="lblHospedes"
+                           FontSize="16"
+                           TextColor="#3F3A34" />
+
+                    <Label x:Name="lblPeriodo"
+                           FontSize="16"
+                           TextColor="#3F3A34" />
+
+                    <Label x:Name="lblDiarias"
+                           FontSize="16"
+                           TextColor="#3F3A34" />
+
+                    <BoxView HeightRequest="1"
+                             Color="#E3D7C8" />
+
+                    <Label x:Name="lblValorDiaria"
+                           FontSize="16"
+                           TextColor="#3F3A34" />
+
+                    <Label x:Name="lblTotal"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="#2F6B4F" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Nova consulta"
+                    BackgroundColor="#2F6B4F"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="OnNovaConsultaClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
